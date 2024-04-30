@@ -8,7 +8,7 @@ public class Avvio {
 	 * metodo sull'istanza creata. Ecco un esempio:
 	 */
 	public void mioMetodo() {
-		System.out.println("Inizio programma);
+		System.out.println("Inizio programma");
 		System.out.println("Questo è il mio metodo! ......non statico ....");
 	}
 
