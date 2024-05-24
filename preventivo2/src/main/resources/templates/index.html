@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Home - Preventivo</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+     <style>
+        .rounded-btn {
+            border-radius: 50px;
+            border: 3px solid black;
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,27 +28,27 @@
                 <a class="nav-link" th:href="@{/preventivo/create}">Creazione Preventivo</a>
             </li>
             -->
-            <li class="nav-item">
-                <button class="btn btn-primary" onclick="window.location.href='/utenti'">Lista Utenti</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-success" onclick="window.location.href='/utenti/new'">Registrazione Utente</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-danger" onclick="window.location.href='/lavoriElettrici/list'">Lavori Elettrici</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-warning" onclick="window.location.href='/lavori-edili'">Lavori Edili</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-info" onclick="window.location.href='/lavoriManutenzione'">Lavori di Manutenzione</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-secondary" onclick="window.location.href='/lavoriRestauro/list'">Lavori di Restauro</button>
-            </li>
-            <li class="nav-item">
-                <button class="btn btn-dark" onclick="window.location.href='/lavoriTecnologici/list'">Lavori Tecnologici</button>
-            </li>
+             <li class="nav-item">
+                    <button class="btn btn-primary rounded-btn" onclick="window.location.href='/utenti'">Lista Utenti</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-success rounded-btn" onclick="window.location.href='/utenti/new'">Registrazione Utente</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-danger rounded-btn" onclick="window.location.href='/lavori-elettrici'">Lavori Elettrici</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-warning rounded-btn" onclick="window.location.href='/lavori-edili'">Lavori Edili</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-info rounded-btn" onclick="window.location.href='/lavoriManutenzione'">Lavori di Manutenzione</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-secondary rounded-btn" onclick="window.location.href='/lavoriRestauro'">Lavori di Restauro</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-dark rounded-btn" onclick="window.location.href='/lavoriTecnologici/list'">Lavori Tecnologici</button>
+                </li>
         </ul>
     </div>
 </nav>

@@ -2,6 +2,9 @@ package it.preventivo.controller;
 
 import it.preventivo.entity.LavoriRestauro;
 import it.preventivo.service.LavoriRestauroService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +17,20 @@ public class LavoriRestauroController {
     @Autowired
     private LavoriRestauroService lavoriRestauroService;
 
-    @GetMapping("/list")
-    public String list(Model model) {
-        model.addAttribute("lavoriRestauroList", lavoriRestauroService.findAll());
+//    @GetMapping("/list")
+//    public String list(Model model) {
+//    	
+//        model.addAttribute("lavoriRestauroList", lavoriRestauroService.findAll());
+//        return "lavoriRestauro/list";
+//    }
+
+    
+    @GetMapping
+    public String listLavoriRestauro(Model model) {
+        List<LavoriRestauro> lavoriRestauro = lavoriRestauroService.findAll();
+        model.addAttribute("lavoriRestauro", lavoriRestauro);
         return "lavoriRestauro/list";
     }
-
     @GetMapping("/create")
     public String createForm(Model model) {
         model.addAttribute("lavoriRestauro", new LavoriRestauro());
