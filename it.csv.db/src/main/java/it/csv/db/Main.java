@@ -2,6 +2,8 @@ package it.csv.db;
 
 import java.util.ArrayList;
 
+import it.csv.db.model.LetturaFileCSV;
+
 public class Main {
     public static void main(String[] args) {
         String filePath = "/home/romolofiorenza/Scrivania/eclipse/wks_java/it.csv.db/src/main/resources/PARTE D IMPIANTI ELETTRICI 2023.csv";

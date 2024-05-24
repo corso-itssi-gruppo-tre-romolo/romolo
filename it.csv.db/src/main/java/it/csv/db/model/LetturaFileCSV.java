@@ -1,4 +1,4 @@
-package it.csv.db;
+package it.csv.db.model;
 
 import java.io.BufferedReader;
 import java.io.File;

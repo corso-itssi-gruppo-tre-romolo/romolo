@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 
+import it.csv.db.model.LetturaFileCSV;
+
 public class Main3 {
     public static void main(String[] args) {
         // Apri una finestra di dialogo del file system per selezionare il file CSV
