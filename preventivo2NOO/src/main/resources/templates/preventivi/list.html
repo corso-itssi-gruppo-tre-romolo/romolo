@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista Preventivi</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Lista Preventivi</h1>
+        <a th:href="@{/preventivi/create}" class="btn btn-success mb-3">Crea Nuovo Preventivo</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>Stato</th>
+                    <th>Utente</th>
+                    <th>Azione</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="preventivo : ${preventivi}">
+                    <td th:text="${preventivo.idPreventivo}"></td>
+                    <td th:text="${preventivo.dataPreventivo}"></td>
+                    <td th:text="${preventivo.stato}"></td>
+                    <td th:text="${preventivo.utente.nome} + ' ' + ${preventivo.utente.cognome}"></td>
+                    <td>
+                        <a th:href="@{/preventivi/{id}/edit(id=${preventivo.idPreventivo})}" class="btn btn-primary btn-sm">Modifica</a>
+                        <a th:href="@{/preventivi/{id}/delete(id=${preventivo.idPreventivo})}" class="btn btn-danger btn-sm">Elimina</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

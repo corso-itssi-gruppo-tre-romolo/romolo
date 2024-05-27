@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Crea Nuovo Preventivo</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Crea Nuovo Preventivo</h1>
+        <form th:action="@{/preventivi/create}" th:object="${preventivo}" method="post">
+            <div class="form-group">
+                <label for="utente">Utente:</label>
+                <select class="form-control" id="utente" th:field="*{utente}">
+                    <option th:each="utente : ${utenti}" th:value="${utente}" th:text="${utente.nome} + ' ' + ${utente.cognome}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="dataPreventivo">Data Preventivo:</label>
+                <input type="date" class="form-control" id="dataPreventivo" th:field="*{dataPreventivo}" />
+            </div>
+            <div class="form-group">
+                <label for="stato">Stato:</label>
+                <input type="text" class="form-control" id="stato" th:field="*{stato}" />
+            </div>
+            <div class="form-group">
+                <label for="lavorazioni">Lavorazioni:</label>
+                <select multiple class="form-control" id="lavorazioni" th:field="*{lavoraziones}">
+                    <option th:each="lavorazione : ${lavorazioni}" th:value="${lavorazione}" th:text="${lavorazione.descrizione}"></option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success">Crea</button>
+        </form>
+        <a th:href="@{/preventivi/list}" class="btn btn-primary mt-3">Torna alla lista</a>
+    </div>
+</body>
+</html>

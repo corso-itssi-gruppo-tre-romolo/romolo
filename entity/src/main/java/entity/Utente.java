@@ -3,6 +3,7 @@ package entity;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -38,6 +39,10 @@ public class Utente implements Serializable {
 	private String nome;
 
 	private String password;
+
+	//bi-directional many-to-one association to Preventivo
+	@OneToMany(mappedBy="utente")
+	private List<Preventivo> preventivos;
 
 	public Utente() {
 	}
@@ -112,6 +117,28 @@ public class Utente implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public List<Preventivo> getPreventivos() {
+		return this.preventivos;
+	}
+
+	public void setPreventivos(List<Preventivo> preventivos) {
+		this.preventivos = preventivos;
+	}
+
+	public Preventivo addPreventivo(Preventivo preventivo) {
+		getPreventivos().add(preventivo);
+		preventivo.setUtente(this);
+
+		return preventivo;
+	}
+
+	public Preventivo removePreventivo(Preventivo preventivo) {
+		getPreventivos().remove(preventivo);
+		preventivo.setUtente(null);
+
+		return preventivo;
 	}
 
 }

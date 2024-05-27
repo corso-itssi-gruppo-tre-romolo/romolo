@@ -6,7 +6,11 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.preventivo.entity.Utente;
 import it.preventivo.service.UtenteService;
@@ -32,13 +36,13 @@ public class UtenteControllerThymeleaf {
     }
 
     @PostMapping
-    public String saveUtente(@ModelAttribute("utente") Utente utente) {
+    public String saveUtente(@ModelAttribute Utente utente) {
         utenteService.save(utente);
         return "redirect:/utenti";
     }
 
     @GetMapping("/edit/{id}")
-    public String showEditUtenteForm(@PathVariable("id") long id, Model model) {
+    public String showEditUtenteForm(@PathVariable long id, Model model) {
         Optional<Utente> utente = utenteService.findById(id);
         if (utente.isPresent()) {
             model.addAttribute("utente", utente.get());
@@ -49,7 +53,7 @@ public class UtenteControllerThymeleaf {
     }
 
     @PostMapping("/update/{id}")
-    public String updateUtente(@PathVariable("id") long id, @ModelAttribute("utente") Utente utenteDetails) {
+    public String updateUtente(@PathVariable long id, @ModelAttribute("utente") Utente utenteDetails) {
         Optional<Utente> optionalUtente = utenteService.findById(id);
         if (optionalUtente.isPresent()) {
             Utente utente = optionalUtente.get();
@@ -67,7 +71,7 @@ public class UtenteControllerThymeleaf {
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteUtente(@PathVariable("id") long id) {
+    public String deleteUtente(@PathVariable long id) {
         utenteService.deleteById(id);
         return "redirect:/utenti";
     }

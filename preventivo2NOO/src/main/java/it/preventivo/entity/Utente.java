@@ -14,7 +14,7 @@ import jakarta.persistence.TemporalType;
 
 /**
  * The persistent class for the utente database table.
- * 
+ *
  */
 @Entity
 @Table(name="utente")
@@ -45,6 +45,23 @@ public class Utente implements Serializable {
 	private String nome;
 
 	private String password;
+
+
+
+//	// Associazione con Preventivo bidizionale .
+//    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Preventivo> preventivi;
+
+
+
+
+//	public List<Preventivo> getPreventivi() {
+//		return preventivi;
+//	}
+//
+//	public void setPreventivi(List<Preventivo> preventivi) {
+//		this.preventivi = preventivi;
+//	}
 
 	public Utente() {
 	}
