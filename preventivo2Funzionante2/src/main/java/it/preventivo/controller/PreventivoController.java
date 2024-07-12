@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.preventivo.entity.Preventivo;
 import it.preventivo.entity.Utente;
 import it.preventivo.service.PreventivoService;
 import it.preventivo.service.UtenteService;
 
-@Controller
+@RestController
 @RequestMapping("/preventivi")
 public class PreventivoController {
 

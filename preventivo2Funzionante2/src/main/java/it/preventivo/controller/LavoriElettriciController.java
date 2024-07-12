@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import it.preventivo.entity.LavoriElettrici;
@@ -23,14 +24,20 @@ public class LavoriElettriciController {
 
     @Autowired
     private LavoriElettriciService lavoriElettriciService;
+    
     @Autowired
     private UtenteService utenteService;
-    @GetMapping
+    
+    
+    @GetMapping    
     public String getAllLavoriElettrici(Model model) {
+    	
     	List<Utente> utenti = utenteService.findAll();
         model.addAttribute("utente", new Utente());  // Assicurati che l'oggetto 'utente' sia presente nel modello
+        
         List<LavoriElettrici> lavori = lavoriElettriciService.findAll();
         model.addAttribute("lavori", lavori);
+        
         return "lavori_elettrici_list"; // Nome corretto della vista
     }
 

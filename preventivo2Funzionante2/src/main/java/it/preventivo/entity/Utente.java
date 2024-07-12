@@ -27,7 +27,7 @@ public class Utente implements Serializable {
 	private Long idutente;
 
 	@Column(name="categoria_lavori_id")
-	private int categoriaLavoriId;
+	private Integer categoriaLavoriId;
 
 	private String cognome;
 
@@ -63,11 +63,11 @@ public class Utente implements Serializable {
 		this.idutente = idutente;
 	}
 
-	public int getCategoriaLavoriId() {
+	public Integer getCategoriaLavoriId() {
 		return this.categoriaLavoriId;
 	}
 
-	public void setCategoriaLavoriId(int categoriaLavoriId) {
+	public void setCategoriaLavoriId(Integer categoriaLavoriId) {
 		this.categoriaLavoriId = categoriaLavoriId;
 	}
 

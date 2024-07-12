@@ -10,13 +10,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.preventivo.entity.LavoriRestauro;
+import it.preventivo.entity.Utente;
 import it.preventivo.service.LavoriRestauroService;
+import it.preventivo.service.UtenteService;
 
 @Controller
 @RequestMapping("/lavoriRestauro")
 public class LavoriRestauroController {
+	
+	 @Autowired
+	 private UtenteService utenteService;
+	    
 
     @Autowired
     private LavoriRestauroService lavoriRestauroService;
@@ -31,6 +38,11 @@ public class LavoriRestauroController {
 
     @GetMapping
     public String listLavoriRestauro(Model model) {
+    	
+    	List<Utente> utenti = utenteService.findAll();
+        model.addAttribute("utente", new Utente());  // Assicurati che l'oggetto 'utente' sia presente nel modello
+        
+    	
         List<LavoriRestauro> lavoriRestauro = lavoriRestauroService.findAll();
         model.addAttribute("lavoriRestauro", lavoriRestauro);
         return "lavoriRestauro/list";

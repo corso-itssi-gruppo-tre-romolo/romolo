@@ -10,9 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.preventivo.entity.LavoriEdili;
+import it.preventivo.entity.Utente;
 import it.preventivo.service.LavoriEdiliService;
+import it.preventivo.service.UtenteService;
 
 @Controller
 @RequestMapping("/lavori-edili")
@@ -20,11 +23,20 @@ public class LavoriEdiliController {
 
     @Autowired
     private LavoriEdiliService lavoriEdiliService;
+    
+    @Autowired
+    private UtenteService utenteService;
+    
 
     @GetMapping
     public String mostraTutti(Model model) {
+    	// recupero la lista degli utenti per la select box
+    	List<Utente> utenti = utenteService.findAll();
+        model.addAttribute("utente", new Utente());  // Assicurati che l'oggetto 'utente' sia presente nel modello
+    	
         List<LavoriEdili> lavoriEdili = lavoriEdiliService.findAll();
         model.addAttribute("lavori", lavoriEdili);
+        
         return "lavori_edili";
     }
 

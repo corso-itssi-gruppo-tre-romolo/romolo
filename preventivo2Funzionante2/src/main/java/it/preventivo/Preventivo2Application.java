@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication
+//@EnableSwagger2
 public class Preventivo2Application {
 	static ConfigurableApplicationContext context;
 	//static ApplicationContext context;

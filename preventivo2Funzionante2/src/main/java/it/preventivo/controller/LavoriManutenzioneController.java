@@ -11,21 +11,32 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import it.preventivo.entity.LavoriManutenzione;
+import it.preventivo.entity.Utente;
 import it.preventivo.service.LavoriManutenzioneService;
+import it.preventivo.service.UtenteService;
 
 @Controller
 @RequestMapping("/lavoriManutenzione")
 public class LavoriManutenzioneController {
-
+	
+	@Autowired
+	private UtenteService utenteService;
+	    
     @Autowired
     private LavoriManutenzioneService lavoriManutenzioneService;
 
     @GetMapping
     public String getAll(Model model) {
+    	
+    	List<Utente> utenti = utenteService.findAll();
+        model.addAttribute("utente", new Utente());  // Assicurati che l'oggetto 'utente' sia presente nel modello
+    	
         List<LavoriManutenzione> lavoriManutenzioneList = lavoriManutenzioneService.findAll();
         model.addAttribute("lavoriManutenzioneList", lavoriManutenzioneList);
+        
         return "lavoriManutenzione/list";
     }
 
